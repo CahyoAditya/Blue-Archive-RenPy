@@ -72,11 +72,11 @@ label start:
 
     hide Kei_Prototype_Idle
     show Kei_Prototype_Sweat at middle_kei_prototype
-    play sound "SE_Appear_02b.wav.mp3"
+    play sound "SE_Appear_02b.wav.mp3" volume 1.5
     kei ".{nw=0.5}"
-    play sound "SE_Appear_02b.wav.mp3"
+    play sound "SE_Appear_02b.wav.mp3" volume 1.5
     extend ".{nw=0.5}"
-    play sound "SE_Appear_02b.wav.mp3"
+    play sound "SE_Appear_02b.wav.mp3" volume 1.5
     extend "."
 
     menu:
@@ -112,7 +112,7 @@ label start:
             pass
 
     hide Kei_Prototype_smile
-    play sound "SE_Cartoon_01.wav.mp3"
+    play sound "SE_Cartoon_01.wav.mp3" volume 2.5
     show Kei_Prototype_AngryBlushed at middle_kei_prototype, jump()
     kei "Why is that all you ever want to talk about?"
 

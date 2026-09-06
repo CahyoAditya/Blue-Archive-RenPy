@@ -62,7 +62,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "Track_22_Nor_Daily_Routine_247.ogg.mp3"
 
 
 ## Transitions #################################################################
