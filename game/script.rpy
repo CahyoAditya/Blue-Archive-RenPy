@@ -62,11 +62,14 @@ transform middle_kei_prototype:
 
 # The game starts here.
 label start:
+    play music "Track_267.ogg.mp3"
+
     # Startup scene / animation
     scene BG_Iron Continent
     pause 1.0
     show Kei_Prototype_Idle at middle_kei_prototype, blackfx(2.0)
     pause 2.0
+
     hide Kei_Prototype_Idle
     show Kei_Prototype_Sweat at middle_kei_prototype
     play sound "SE_Appear_02b.wav.mp3"
