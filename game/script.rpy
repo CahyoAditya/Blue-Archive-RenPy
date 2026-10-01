@@ -12,17 +12,6 @@ image Kei_Prototype_question = "Kei_Prototype_question.png"
 image Kei_Prototype_smile = "Kei_Prototype_03.png"
 image Kei_Prototype_AngryBlushed = "Kei_Prototype_13.png"
 
-# ANIMATION ================================================
-# This block is purely for animation purposes.
-# ==========================================================
-
-# Animation black -> its color in default 1 sec
-transform blackfx(duration=1.0):
-    # Start as completely black
-    matrixcolor TintMatrix("#000000")
-
-    # Smoothly fade in opacity and restore color
-    ease duration matrixcolor TintMatrix("#ffffff")
 
 # Animation shake left and right for .1s and repeat until duration went out
 transform shake(times=5):
@@ -34,44 +23,21 @@ transform shake(times=5):
         repeat times
     xoffset 0
 
-# Animation shake up down like jumping
-transform jump(times=5):
-    ease 0.1 yoffset -40
-    pause 0.05
-    ease 0.05 yoffset 5
-    pause 0.05
-    ease 0.1 yoffset 0
-
-# TRANSFORM ================================================
-# This block is for defining transforms used in the game.
-# ==========================================================
-
-# Set transform to the middle of screen
-transform middle:
-    xalign 0.5
-    yalign 0.5
-    yoffset 400
-    zoom 1.3
-
-# Set transform to the middle of screen for Kei prototype
-transform middle_kei_prototype:
-    xalign 0.3
-    yalign 0.5
-    yoffset 400
-    zoom 1.3
-
+# MAIN STORY =====================================
 # The game starts here.
+# ================================================
 label start:
     play music "Track_267.ogg.mp3"
 
     # Startup scene / animation
     scene BG_Iron Continent
     pause 1.0
-    show Kei_Prototype_Idle at middle_kei_prototype, blackfx(2.0)
+    show Kei_Prototype_Idle at middle_kei_prototype, take, silhouette_in, idle
     pause 2.0
 
+    # Text ... kei
     hide Kei_Prototype_Idle
-    show Kei_Prototype_Sweat at middle_kei_prototype
+    show Kei_Prototype_Sweat at middle_kei_prototype, idle
     play sound "SE_Appear_02b.wav.mp3" volume 1.5
     kei ".{nw=0.5}"
     play sound "SE_Appear_02b.wav.mp3" volume 1.5
@@ -83,10 +49,12 @@ label start:
         "...":
             pass
 
+    # Text What? Why are you staring at me like that? kei
     hide Kei_Prototype_Sweat
-    show Kei_Prototype_Idle at middle_kei_prototype, shake()
+    show Kei_Prototype_Idle at middle_kei_prototype, shake(), idle
     kei "What? Why are you staring at me like that?"
 
+    # Text Is there something on my face? Oh, there's not? I knew that. I checked a mirror before we came out here. kei
     hide Kei_Prototype_Idle
     show Kei_Prototype_Openmouth_Eyesclosed at middle_kei_prototype
     kei "Is there something on my face? Oh, there's not? I knew that. I checked a mirror before we came out here."
@@ -94,6 +62,7 @@ label start:
     menu:
         "No, I just...":
             pass
+
 
     hide Kei_Prototype_Openmouth_Eyesclosed
     show Kei_Prototype_question at middle_kei_prototype
@@ -109,6 +78,8 @@ label start:
 
     menu:
         "And...Kei-Kei looks really cute.":
+            pass
+        "And...Mommy really cute":
             pass
 
     hide Kei_Prototype_smile
